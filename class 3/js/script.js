@@ -43,26 +43,42 @@ const b = a.map(obj => {
 //     }
 // }));
 // console.log("a", a);
-const findOdd = (a, b) => {
-    if (a < b) {
-        const oddArray = []
-        for (let i = a; i < b; i++) {
-            if (i % 2 !== 0) {
-                oddArray.push(i)
-            }
-        }
-        return oddArray
-    } else {
-        alert("Please provide a less then b")
+// const findOdd = (a, b) => {
+//     if (a < b) {
+//         const oddArray = []
+//         for (let i = a; i < b; i++) {
+//             if (i % 2 !== 0) {
+//                 oddArray.push(i)
+//             }
+//         }
+//         return oddArray
+//     } else {
+//         alert("Please provide a less then b")
+//     }
+// }
+// const oddNumber = findOdd(0, 1000)
+// // console.log("oddNumber", );
+// const findGreaterValue = (arrayVal,limit) => {
+//     return arrayVal.filter(obj => {
+//         if (obj > limit)
+//             return obj
+//         return null
+//     })
+// }
+// console.log("findGreaterValue(oddNumber)",findGreaterValue(oddNumber,200));
+console.log('sampleData',sampleData);
+(obj)=>{}
+obj=>{}
+
+const abc=(obj)=>{}
+abc("value")
+const obj=sampleData.find((obj)=>{
+    if(obj.id===1){
+        return obj
     }
-}
-const oddNumber = findOdd(0, 1000)
-// console.log("oddNumber", );
-const findGreaterValue = (arrayVal,limit) => {
-    return arrayVal.filter(obj => {
-        if (obj > limit)
-            return obj
-        return null
-    })
-}
-console.log("findGreaterValue(oddNumber)",findGreaterValue(oddNumber,200));
+})
+console.log({
+    userId:obj.userId,
+    id:obj.id,
+    age:15
+});
