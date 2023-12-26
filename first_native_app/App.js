@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import MyButtons from './Components/MyButtons';
 
 const App = () => {
+  const [myHistory,setmyHistory]=useState("0")
   const [calculation, setcalculation] = useState("0")
   const CalcBtnClick=(value)=>{
     if(calculation==="0"){
@@ -12,14 +13,30 @@ const App = () => {
       setcalculation((calculation+value).toString())
     }
   }
+
   const calculateWholeValue=()=>{
+    setmyHistory(calculation)
     setcalculation(eval(calculation));
   }
+  const clearFunction=()=>{
+    setcalculation("0")
+  }
+  const delFunction=()=>{
+    if(typeof(calculation)!=='number')
+    setcalculation(calculation.slice(0,-1));
+  }
+  console.log("calculation1",calculation);
   return (
     <View style={styles.container}>
+      <Text style={styles.historyDesign}>
+        {myHistory}
+      </Text>
       <Text style={styles.mainScreen}>{calculation}</Text>
       <View style={styles.mainButtonWrapper}>
         <View style={styles.buttonsBox}>
+          <MyButtons title={"C"} onClick={clearFunction} />
+          <MyButtons title={"DEL"} onClick={delFunction} />
+          <MyButtons title={"%"} onClick={CalcBtnClick} />
           <MyButtons title={9} onClick={CalcBtnClick} />
           <MyButtons title={8} onClick={CalcBtnClick} />
           <MyButtons title={7} onClick={CalcBtnClick} />
@@ -45,6 +62,13 @@ const App = () => {
   );
 };
 const styles = StyleSheet.create({
+  historyDesign:{
+    fontSize:20,
+    color:"#fff",
+    padding:10,
+    textAlign:"right",
+
+  },
   container: {
     flex: 1,
     backgroundColor: '#272727',
